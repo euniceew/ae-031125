@@ -129,7 +129,9 @@ form.grid{display:grid;gap:16px;margin-top:18px}
 
 /* Viewer */
 .viewer .big{background:#1e1814;aspect-ratio:4/3;display:grid;place-items:center;position:relative;max-width:100%;border:10px solid var(--polaroid);border-bottom-width:12px}
-.viewer .big img{max-width:100%;max-height:100%;object-fit:contain}
+.viewer .big img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.viewer{position:relative}
+.viewer .x{position:sticky;top:6px;display:block;margin:-16px -10px 6px auto;z-index:3;width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:var(--paper);color:var(--ink);font-size:1.3rem;line-height:1;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25)}
 .viewer .nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(250,246,236,.85);color:#3b2f27;border:0;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.1rem}
 .viewer .nav.prev{left:8px}.viewer .nav.next{right:8px}
 .viewer h2{font-family:var(--f-hand);font-size:2.6rem;line-height:1;margin-top:18px}
@@ -572,6 +574,7 @@ body.locked{overflow:hidden}
 
 <dialog id="viewDlg">
   <div class="sheet viewer">
+    <button class="x" type="button" id="vX" aria-label="Close">×</button>
     <div class="big" id="vBig"></div>
     <h2 id="vTitle"></h2>
     <div class="meta" id="vMeta"></div>
@@ -751,6 +754,8 @@ function openViewer(m) {
   $("viewDlg").showModal();
 }
 $("vClose").onclick = () => $("viewDlg").close();
+$("vX").onclick = () => $("viewDlg").close();
+$("viewDlg").addEventListener("click", e => { if (e.target === $("viewDlg")) $("viewDlg").close(); });
 $("vDel").onclick = async () => {
   if (!delArmed) { delArmed = true; $("vDel").textContent = "Tap again to remove"; return; }
   $("vDel").disabled = true;
