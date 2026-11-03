@@ -1570,9 +1570,8 @@ const QUIZ = [
   { q: "What kind of jewelry do I like?", a: ["gold", "rose gold", "silver", "a mix"], c: 0 },
   { q: "What is my alarm clock personality?", a: ["wakes up instantly on the first beep, completely alert", "sets 10 alarms 5 minutes apart and sleeps through half of them",
     "wakes up on time but spends 1 hour scrolling reels", "doesn't hear the alarm at all, you gotta wake me up"], c: 3 },
-  // c: -1 means every answer counts
   { q: "If I won the lottery, what's the first thing I'd do?", a: ["book a first class flight for a luxury vacation", "quit uni",
-    "move to a nice apartment with my dream interior", "go shopping for clothes, bags and shoes"], c: -1, trick: "trick question, i'd do all of them 💸" },
+    "move to a nice apartment with my dream interior", "go shopping for clothes, bags and shoes"], c: 2 },
 ];
 const GRADES = [
   [10, "A+", "certified boyfriend 💯"], [8, "A", "you know me so well ♡"], [6, "B", "not bad… but study harder 📚"],
@@ -1591,12 +1590,12 @@ const GRADES = [
       b.append(el("span", "bubble", "ABCD"[i]), el("span", "otxt", txt));
       b.onclick = () => {
         list.querySelectorAll("button").forEach(x => x.disabled = true);
-        const right = item.c < 0 || i === item.c; if (right) score++;
+        const right = i === item.c; if (right) score++;
         b.classList.add(right ? "right" : "wrong");
-        if (item.c >= 0) list.children[item.c].classList.add("answer");
+        list.children[item.c].classList.add("answer");
         const next = el("button", "add-btn next", qi + 1 < QUIZ.length ? "next question →" : "see my grade ♡"); next.type = "button";
         next.onclick = () => { qi++; qi < QUIZ.length ? ask() : grade(); };
-        wrap.append(el("p", "verdict", item.trick || (right ? "correct! ♡" : "wrong!! 😤")), next);
+        wrap.append(el("p", "verdict", right ? "correct! ♡" : "wrong!! 😤"), next);
         next.focus();
       };
       list.append(b);
