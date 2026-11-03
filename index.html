@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Special+Elite&family=Reenie+Beanie&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Dancing+Script:wght@500;700&family=LXGW+WenKai+TC&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Special+Elite&family=Reenie+Beanie&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Dancing+Script:wght@500;700&family=LXGW+WenKai+TC&family=Caveat:wght@500;600&display=swap">
 <style>
 /* Layout: a scrapbook on aged paper. Ticket-stub hero, a sheet of passport stamps, then polaroids taped down month by month. */
 :root{
@@ -23,16 +23,6 @@
   --f-type:"Special Elite","American Typewriter","Courier New",monospace;
   --f-hand:"Reenie Beanie","Bradley Hand","Segoe Print",cursive;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#201a16; --paper-2:#2a221c; --ink:#eadfc8; --ink-soft:#b3a48d;
-  --stamp-red:#d07a68; --stamp-teal:#7fb0a8; --stamp-ochre:#d7b264; --stamp-plum:#b98fae;
-  --polaroid:#efe8d8; --polaroid-edge:#cfc3a8; --tape:rgba(205,186,140,.55); --shadow:rgba(0,0,0,.5);
-  --rule:#4a3e33; --field:#2c241e; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --paper:#201a16; --paper-2:#2a221c; --ink:#eadfc8; --ink-soft:#b3a48d;
-  --stamp-red:#d07a68; --stamp-teal:#7fb0a8; --stamp-ochre:#d7b264; --stamp-plum:#b98fae;
-  --polaroid:#efe8d8; --polaroid-edge:#cfc3a8; --tape:rgba(205,186,140,.55); --shadow:rgba(0,0,0,.5);
-  --rule:#4a3e33; --field:#2c241e; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
@@ -349,6 +339,157 @@ body.locked{overflow:hidden}
 @keyframes reelScroll{to{transform:translateX(-50%)}}
 .reel-note{text-align:center;font-family:var(--f-hand);font-size:1.6rem;color:var(--ink-soft);margin:18px 0 0}
 
+
+/* ===== Revamp: a cosy scrapbook — knit backdrop, rounded paper panels, paper clips, bows and stickers ===== */
+:root{
+  --paper:#f3ece0;--paper-2:#e9dfcf;--ink:#3a302b;--ink-soft:#7a6a5d;
+  --stamp-red:#b8332f;--stamp-teal:#5a7aa8;--stamp-ochre:#7f8f4c;--stamp-plum:#c76a80;
+  --polaroid:#fffdf8;--polaroid-edge:#e6dccb;--tape:rgba(234,178,189,.66);--shadow:rgba(74,56,40,.24);
+  --rule:#d9ccb8;--field:#fbf6ee;
+  --card:#fcf8f1;--denim:#86a3cb;--denim-deep:#2f4a74;--sage:#93a25f;--cherry:#b8332f;--rose:#c76a80;
+  --f-display:"Cormorant Garamond",Garamond,Georgia,serif;
+  --f-body:"Cormorant Garamond",Garamond,Georgia,serif;
+  --f-type:"Cormorant Garamond",Garamond,Georgia,serif;
+  --f-hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+  --f-title:"Pinyon Script","Snell Roundhand","Segoe Script",cursive;
+  color-scheme:light}
+body{background:#efe7da url("deco/knit.svg") repeat;background-size:96px 40px;font-size:18px;font-weight:500;line-height:1.55;overflow-x:clip}
+.label{font-weight:700;font-size:.74rem;letter-spacing:.32em}
+
+/* Header collage */
+.hero{position:relative;padding-block:72px 56px;gap:22px}
+.hero > :not(.collage){position:relative;z-index:1}
+.collage{position:absolute;inset:0;pointer-events:none}
+.collage img{position:absolute}
+.cut{width:clamp(130px,15vw,176px);aspect-ratio:3/4;object-fit:cover;border:7px solid #fff;border-radius:8px;box-shadow:0 14px 26px -12px rgba(60,40,30,.55);filter:saturate(.95) contrast(1.02)}
+.c1{left:0;top:34px;transform:rotate(-7deg)}
+.c2{right:0;top:22px;transform:rotate(6deg)}
+.c3{left:5%;top:330px;width:clamp(110px,12vw,140px);transform:rotate(5deg)}
+.c4{right:4%;top:350px;width:clamp(110px,12vw,140px);transform:rotate(-6deg)}
+.collage .deco{filter:drop-shadow(0 5px 6px rgba(60,40,30,.25))}
+.d-cherry{left:clamp(110px,14vw,160px);top:240px;width:74px;transform:rotate(-8deg)}
+.d-bow{right:clamp(90px,11vw,130px);top:0;width:96px;transform:rotate(10deg)}
+.d-star{left:clamp(150px,18vw,210px);top:520px;width:64px;transform:rotate(14deg)}
+.d-heart{right:clamp(150px,18vw,200px);top:560px;width:64px;transform:rotate(-10deg)}
+.d-spark1{left:30%;top:40px;width:26px}
+.d-spark2{right:27%;top:300px;width:20px}
+@media (max-width:899px){
+  .hero{padding-top:clamp(250px,64vw,330px)}
+  .cut{width:min(40vw,190px)}
+  .c1{left:-4px;top:26px}.c2{right:-4px;top:44px}
+  .c3,.c4,.d-heart,.d-spark2{display:none}
+  .d-cherry{left:calc(50% - 30px);top:clamp(60px,14vw,90px);width:60px}
+  .d-bow{right:6%;top:4px;width:72px}
+  .d-star{left:-8px;top:clamp(196px,52vw,262px);width:52px}
+  .d-spark1{left:47%;top:clamp(170px,42vw,220px);width:20px}
+}
+.hero .vol{font-family:var(--f-type);font-weight:700;letter-spacing:.4em;font-size:.78rem;color:var(--cherry)}
+.hero h1{font-family:var(--f-title);font-size:clamp(3.8rem,13vw,7.4rem);line-height:1.08;letter-spacing:0;color:var(--denim-deep);padding-inline:.2em;
+  text-shadow:2px 0 #fff,-2px 0 #fff,0 2px #fff,0 -2px #fff,2px 2px #fff,-2px -2px #fff,2px -2px #fff,-2px 2px #fff,3px 0 #fff,-3px 0 #fff,0 3px #fff,0 -3px #fff,0 10px 18px rgba(60,40,30,.22)}
+.hero h1 em{font-family:var(--f-display);font-weight:500;font-size:.3em;letter-spacing:.04em;color:var(--ink-soft);text-shadow:none;margin-bottom:.1em}
+.names{font-family:var(--f-hand);font-weight:600;font-size:clamp(1.8rem,5.5vw,2.4rem);color:var(--cherry);background:var(--tape);padding:2px 22px 4px;transform:rotate(-3deg);
+  -webkit-mask:linear-gradient(90deg,transparent 0 3px,#000 3px calc(100% - 3px),transparent 0);mask:linear-gradient(90deg,transparent 0 3px,#000 3px calc(100% - 3px),transparent 0)}
+.names:hover{color:var(--denim-deep)}
+.ticket{background:var(--card);border:0;border-radius:16px;box-shadow:none;outline:1.5px dashed #dba7b2;outline-offset:-9px;filter:drop-shadow(0 12px 16px rgba(74,56,40,.18))}
+.ticket div{padding:16px 28px;border-left:1.5px dashed #e3cdb9}
+.ticket b{font-family:var(--f-display);font-weight:600;font-size:2.5rem;color:var(--denim-deep)}
+.ticket span{font-family:var(--f-type);font-weight:700;font-size:.66rem;letter-spacing:.24em;color:var(--ink-soft)}
+.since{font-family:var(--f-display);font-style:italic;font-size:1.1rem}
+.add-btn{font-family:var(--f-type);font-weight:700;letter-spacing:.2em;font-size:.8rem;background:var(--cherry);color:#fff7f2;border-radius:999px;padding:12px 26px;box-shadow:0 8px 16px -8px rgba(184,51,47,.7),inset 0 0 0 2px rgba(255,255,255,.22)}
+.add-btn:hover{transform:translateY(-1px);box-shadow:0 10px 18px -8px rgba(184,51,47,.75),inset 0 0 0 2px rgba(255,255,255,.3)}
+
+/* Panels: rounded sheets of paper, each clipped to the board */
+.panel{--pad:clamp(20px,5vw,56px);--panel-bg:var(--card);position:relative;background:var(--panel-bg);border-radius:30px;
+  padding:clamp(60px,8vw,76px) var(--pad) clamp(44px,6vw,64px);margin-block:72px;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.55),0 24px 44px -24px rgba(74,56,40,.5),0 2px 6px rgba(74,56,40,.08)}
+.panel > :not(.deco):not(.badge):not(.wavy-line){position:relative;z-index:1}
+.panel::before{content:"";position:absolute;top:-36px;left:clamp(28px,9%,90px);width:26px;height:84px;background:url("deco/clip.svg") center/contain no-repeat;z-index:4;transform:rotate(-5deg)}
+.panel:nth-of-type(even)::before{left:auto;right:clamp(28px,9%,90px);transform:rotate(6deg)}
+.badge{position:absolute;z-index:3;top:-34px;right:clamp(8px,5%,48px);width:104px;height:104px;display:grid;place-items:center;text-align:center;padding:20px;
+  background:url("deco/scallop.svg") center/contain no-repeat;font-family:var(--f-hand);font-weight:500;font-size:1.3rem;line-height:.95;color:#4f4036;transform:rotate(8deg);filter:drop-shadow(0 5px 6px rgba(60,40,30,.22))}
+.panel:nth-of-type(even) .badge{right:auto;left:clamp(8px,5%,48px);transform:rotate(-7deg)}
+.panel > .deco{position:absolute;z-index:2;pointer-events:none;width:clamp(64px,10vw,96px);filter:drop-shadow(0 5px 6px rgba(60,40,30,.25))}
+.s-bl{left:-16px;bottom:-26px;transform:rotate(-12deg)}
+.s-br{right:-14px;bottom:-24px;transform:rotate(10deg)}
+.s-tl{left:-14px;top:-30px;transform:rotate(-10deg)}
+.panel > .deco.spark{width:30px;right:22px;bottom:18px}
+.wavy-line{position:absolute;left:12px;top:12px;width:calc(100% - 24px);height:calc(100% - 24px);z-index:0;pointer-events:none;overflow:visible}
+.wavy-line .line{stroke:var(--sage);stroke-width:2;stroke-linejoin:round}
+
+.sec-head{flex-direction:column;align-items:center;text-align:center;gap:4px;border:0;padding:0;margin-bottom:36px}
+.sec-head .label{order:-1;margin:0;color:var(--accent,var(--cherry))}
+.sec-head h2{font-family:var(--f-title);font-size:clamp(2.9rem,9vw,4.4rem);line-height:1.15;color:var(--head,var(--denim-deep));padding-inline:.2em}
+.sec-head::after{content:"";width:118px;height:14px;margin-top:2px;opacity:.9;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 118 14'%3E%3Cpath d='M2 7q7-7 14 0t14 0 14 0 14 0 14 0 14 0 14 0 14 0' fill='none' stroke='%23d98b9b' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
+
+.p-pink{--panel-bg:#fbeef0;background:repeating-linear-gradient(90deg,#f7dce1 0 16px,#fcf0f2 16px 32px)}
+.p-blue{--panel-bg:#86a3cb;--head:#fffaf2;--accent:#fff0e6;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(0,0,0,.05)),#86a3cb}
+.p-blue .sec-head::after{filter:brightness(1.6)}
+.p-dark{--panel-bg:#1d1a19;--head:#f7efe4;--accent:#e7b9c2;color:#efe6da}
+.p-dark .reel-note{color:#cbbfb3}
+.p-open{background:transparent;box-shadow:none;padding-inline:0}
+.p-open::before{display:none}
+.p-blue .ghost-btn{color:#fffaf2}
+.ribbon::after{content:"";position:absolute;top:0;bottom:0;right:clamp(16px,6%,56px);width:28px;z-index:0;background-color:#fbf4ee;
+  background-image:linear-gradient(90deg,rgba(196,53,47,.6) 50%,transparent 50%),linear-gradient(rgba(196,53,47,.6) 50%,transparent 50%);background-size:10px 10px}
+.ribbon .badge{right:auto;left:clamp(8px,5%,48px);transform:rotate(-7deg)}
+.ribbon::before{left:44%}
+.panel > .deco.rib-bow{top:-30px;right:calc(clamp(16px,6%,56px) - 38px);width:104px;z-index:3}
+
+/* Section details, re-dressed */
+.reel-wrap{margin-inline:calc(-1 * var(--pad))}
+.stamp{background:rgba(255,253,248,.82);mix-blend-mode:normal;opacity:.95;box-shadow:0 6px 12px -8px var(--shadow)}
+.stamp .pl{font-weight:700}
+.map-frame{border-radius:18px;overflow:hidden}
+.lt{border-radius:18px}
+.lt-side{background:repeating-linear-gradient(90deg,#f7dce1 0 12px,#fcf0f2 12px 24px)}
+.strip{border-radius:4px}
+.pass{border-radius:18px}
+.pass-top{background:var(--denim-deep);font-family:var(--f-type);font-weight:700;letter-spacing:.3em}
+.route b{font-family:var(--f-display);font-weight:600;color:var(--denim-deep)}
+.route .plane{color:var(--cherry)}
+.pass-stub::before,.pass-stub::after{background:var(--panel-bg)}
+.pass-stub b{font-weight:600;color:var(--cherry)}
+.pass-grid b,.pass-stub .unit{font-weight:500}
+.clock .digital{font-weight:600}
+.clock .who,.apart{font-weight:500}
+.apart{color:var(--rose)}
+.song-info .our{color:var(--rose);font-weight:500}
+.song-info h3{font-family:var(--f-title);font-size:clamp(3rem,9vw,4.4rem);line-height:1.1;color:var(--denim-deep)}
+.song-info .by{font-weight:700;letter-spacing:.3em}
+.coupon{border-radius:4px}
+.coupon h3{font-weight:600;font-size:1.6rem}
+.coupon .eyebrow{font-weight:700}
+.coupon .valid{font-weight:500}
+.redeem{border-radius:999px;font-weight:700}
+.notepad{border-radius:6px}
+.notepad::before{background:radial-gradient(circle 6px at 50% 50%,var(--panel-bg) 98%,transparent) 0 0/34px 20px repeat-x}
+.bucket li{align-items:flex-start}
+.bucket .tick{margin-top:8px}
+.bucket .txt{font-weight:500;font-size:1.6rem;line-height:40px}
+.bucket-add input{font-size:1.5rem}
+.month h3{display:inline-block;font-family:var(--f-display);font-style:italic;font-weight:600;font-size:1.55rem;line-height:1.2;color:var(--denim-deep);background:var(--card);
+  padding:6px 24px;border-radius:999px;border:1.5px dashed #dba7b2;box-shadow:0 8px 16px -10px var(--shadow);margin-bottom:28px}
+.pola{border-radius:4px;border-color:#efe6d6}
+.pola::before{background:var(--tape)}
+.board > .pola:nth-child(3n+2)::before{width:24px;height:74px;top:-30px;left:28px;transform:rotate(-6deg);background:url("deco/clip.svg") center/contain no-repeat;-webkit-mask:none;mask:none}
+.pola .cap{font-weight:500;font-size:1.65rem}
+.pola .meta{font-weight:700;letter-spacing:.14em}
+.sheet{border-radius:22px;background:var(--card)}
+.viewer h2{font-weight:500}
+footer{font-family:var(--f-title);font-size:2.4rem;color:var(--rose)}
+@media (max-width:620px){
+  .panel{--pad:14px;margin-block:64px;border-radius:24px}
+  .badge{width:88px;height:88px;font-size:1.1rem;padding:16px}
+  .ribbon::after{right:0;width:22px;border-radius:0 24px 24px 0}
+  .panel > .deco.rib-bow{right:-12px;width:76px}
+  .notepad{padding:44px 12px 20px 56px}
+  .ticket{flex-wrap:nowrap;width:100%}
+  .ticket div{padding:14px 10px;flex:1}
+  .ticket b{font-size:2.1rem}
+  .ticket span{font-size:.58rem;letter-spacing:.16em}
+}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -386,6 +527,18 @@ body.locked{overflow:hidden}
 </div>
 <div class="wrap">
   <header class="hero">
+    <div class="collage" aria-hidden="true">
+      <img class="cut c1" src="photos/de7d1be53ef9f3ef3efa45a424f2524b.jpg" alt="">
+      <img class="cut c2" src="photos/f898a801dd9791bca36e5ae16b178634.jpg" alt="">
+      <img class="cut c3" src="photos/1c76e3e46e2f7c7ccf52069c250d0246.jpg" alt="">
+      <img class="cut c4" src="photos/9c3bc9e7555884e10e35cfb661aa0a1c.jpg" alt="">
+      <img class="deco d-cherry" src="deco/cherries.svg" alt="">
+      <img class="deco d-bow" src="deco/bow-pink.svg" alt="">
+      <img class="deco d-star" src="deco/star-denim.svg" alt="">
+      <img class="deco d-heart" src="deco/heart-gingham.svg" alt="">
+      <img class="deco d-spark1" src="deco/sparkle.svg" alt="">
+      <img class="deco d-spark2" src="deco/sparkle.svg" alt="">
+    </div>
     <div class="vol">VOL. I &nbsp;·&nbsp; NO. 365</div>
     <h1><em>a little archive of</em>The Year of Us</h1>
     <button class="names" id="namesBtn" type="button" title="Edit names">you &amp; me</button>
@@ -399,7 +552,9 @@ body.locked{overflow:hidden}
     <div class="offline" id="offline" hidden>Open this page signed in to Claude to add and save memories.</div>
   </header>
 
-  <section aria-labelledby="h-song">
+  <section class="panel p-cream wavy" aria-labelledby="h-song">
+    <span class="badge" aria-hidden="true">press play ♡</span>
+    <img class="deco s-br" src="deco/bow-sage.svg" alt="">
     <div class="sec-head"><h2 id="h-song">Now playing</h2><span class="label">side A · track 1</span></div>
     <div class="song-wrap">
       <div class="turntable" id="turntable">
@@ -425,7 +580,9 @@ body.locked{overflow:hidden}
     <audio id="song" src="audio/photograph.mp3" preload="metadata"></audio>
   </section>
 
-  <section aria-labelledby="h-reel">
+  <section class="panel p-dark" aria-labelledby="h-reel">
+    <span class="badge" aria-hidden="true">11 frames</span>
+    <img class="deco s-bl" src="deco/cherries.svg" alt="">
     <div class="sec-head"><h2 id="h-reel">Our film roll</h2><span class="label">11 exposures · developed with love</span></div>
     <div class="reel-wrap" id="reelWrap">
       <div class="reel" role="img" aria-label="A strip of photos of us">
@@ -436,12 +593,16 @@ body.locked{overflow:hidden}
     <p class="reel-note">tap the roll to pause it</p>
   </section>
 
-  <section aria-labelledby="h-places">
+  <section class="panel p-pink" aria-labelledby="h-places">
+    <span class="badge" aria-hidden="true">stamped ✈</span>
+    <img class="deco s-bl bow" src="deco/bow-pink.svg" alt=""><img class="deco s-br spark" src="deco/sparkle.svg" alt="">
     <div class="sec-head"><h2 id="h-places">Places we've been</h2><span class="label" id="placesLabel">passport</span></div>
     <div class="stamps" id="stamps"></div>
   </section>
 
-  <section aria-labelledby="h-map">
+  <section class="panel p-cream" aria-labelledby="h-map">
+    <span class="badge" aria-hidden="true">7,376 km</span>
+    <img class="deco s-bl star" src="deco/star-denim.svg" alt="">
     <div class="sec-head"><h2 id="h-map">Map of us</h2><span class="label">7,376 km apart</span></div>
     <div class="map-frame">
       <svg viewBox="0 0 800 640" role="img" aria-label="Old-style map showing Sydney and Hong Kong, 7,376 kilometres apart, joined by a dashed flight path">
@@ -474,7 +635,9 @@ body.locked{overflow:hidden}
     <p class="map-note">More pins to come as we travel together.</p>
   </section>
 
-  <section aria-labelledby="h-letter">
+  <section class="panel p-blue ribbon" aria-labelledby="h-letter">
+    <span class="badge" aria-hidden="true">for your eyes only</span>
+    <img class="deco rib-bow" src="deco/bow-red.svg" alt=""><img class="deco s-bl heart" src="deco/heart-gingham.svg" alt="">
     <div class="sec-head"><h2 id="h-letter">A letter for you</h2><span class="label">read me first</span></div>
     <article class="lt">
       <div class="lt-paper" id="ltPaper">
@@ -490,7 +653,9 @@ body.locked{overflow:hidden}
     <div class="reveal-row" id="revealRow"><button class="ghost-btn" id="revealBtn" type="button">Too impatient? Reveal the letter</button></div>
   </section>
 
-  <section aria-labelledby="h-until">
+  <section class="panel p-cream wavy" aria-labelledby="h-until">
+    <span class="badge" aria-hidden="true">see you soon</span>
+    <img class="deco s-br bow" src="deco/bow-pink.svg" alt="">
     <div class="sec-head"><h2 id="h-until">Until I see you</h2><span class="label">Sydney → Hong Kong</span></div>
     <div class="pass">
       <div class="pass-main">
@@ -522,12 +687,16 @@ body.locked{overflow:hidden}
     </div>
   </section>
 
-  <section aria-labelledby="h-coupons">
+  <section class="panel p-pink" aria-labelledby="h-coupons">
+    <span class="badge" aria-hidden="true">no expiry</span>
+    <img class="deco s-bl heart" src="deco/heart-gingham.svg" alt=""><img class="deco s-br spark" src="deco/sparkle.svg" alt="">
     <div class="sec-head"><h2 id="h-coupons">Love coupons</h2><span class="label">redeem anytime · no expiry</span></div>
     <div class="coupons" id="coupons"></div>
   </section>
 
-  <section aria-labelledby="h-bucket">
+  <section class="panel p-blue" aria-labelledby="h-bucket">
+    <span class="badge" aria-hidden="true">someday</span>
+    <img class="deco s-br star" src="deco/star-denim.svg" alt="">
     <div class="sec-head"><h2 id="h-bucket">Our bucket list</h2><span class="label">someday, together</span></div>
     <div class="notepad">
       <span class="bucket-count" id="bucketCount"></span>
@@ -539,7 +708,9 @@ body.locked{overflow:hidden}
     </div>
   </section>
 
-  <section aria-labelledby="h-mem">
+  <section class="panel p-open" aria-labelledby="h-mem">
+    <span class="badge" aria-hidden="true">our archive</span>
+    <img class="deco s-tl bow" src="deco/bow-red.svg" alt="">
     <div class="sec-head"><h2 id="h-mem">Memories</h2><span class="label">newest first</span></div>
     <div id="months"></div>
   </section>
@@ -1047,7 +1218,7 @@ const COUPONS = [
   { id: "c7", title: "Instant forgiveness", fine: "Ends any silly argument on the spot. Use wisely." },
   { id: "c8", title: "One hundred kisses", fine: "Redeemable in person only. May be split across visits." },
 ];
-const COUPON_COLORS = ["#a2463a", "#3f6f6a", "#b08a3a", "#6d4b62"];
+const COUPON_COLORS = ["#b8332f", "#5a7aa8", "#c76a80", "#7f8f4c"];
 function renderCoupons() {
   const box = $("coupons"); box.replaceChildren();
   COUPONS.forEach((c, i) => {
@@ -1204,6 +1375,36 @@ memories = (DATA.memories || []).slice().sort((a, b) => (b.date || "").localeCom
 $("addBtn").hidden = true;
 render(); renderPoster();
 })();
+
+/* ---------- wavy hand-drawn frames ---------- */
+function drawWavy(sec) {
+  let svg = sec.querySelector(":scope > svg.wavy-line");
+  if (!svg) {
+    svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "wavy-line"); svg.setAttribute("aria-hidden", "true");
+    svg.innerHTML = '<path class="guide" fill="none"/><path class="line" fill="none"/>';
+    sec.prepend(svg);
+  }
+  const inset = 12, w = sec.clientWidth - inset * 2, h = sec.clientHeight - inset * 2;
+  if (w < 40 || h < 40) return;
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  const r = 22, a = 2.6, g = svg.querySelector(".guide");
+  g.setAttribute("d", `M${r} 4H${w - r}A${r - 4} ${r - 4} 0 0 1 ${w - 4} ${r}V${h - r}A${r - 4} ${r - 4} 0 0 1 ${w - r} ${h - 4}H${r}A${r - 4} ${r - 4} 0 0 1 4 ${h - r}V${r}A${r - 4} ${r - 4} 0 0 1 ${r} 4Z`);
+  const len = g.getTotalLength(), waves = Math.round(len / 34), step = 3;
+  let d = "";
+  for (let t = 0; t <= len; t += step) {
+    const p = g.getPointAtLength(t), q = g.getPointAtLength(Math.min(len, t + 1));
+    let tx = q.x - p.x, ty = q.y - p.y; const m = Math.hypot(tx, ty) || 1;
+    const off = a * Math.sin(2 * Math.PI * waves * t / len);
+    d += (t ? "L" : "M") + (p.x - ty / m * off).toFixed(1) + " " + (p.y + tx / m * off).toFixed(1);
+  }
+  svg.querySelector(".line").setAttribute("d", d + "Z");
+}
+{
+  const wavies = document.querySelectorAll(".panel.wavy");
+  const ro = new ResizeObserver(es => es.forEach(e => drawWavy(e.target)));
+  wavies.forEach(w => ro.observe(w));
+}
 </script>
 
 </body>
