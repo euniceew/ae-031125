@@ -340,7 +340,7 @@ body.locked{overflow:hidden}
 .reel-note{text-align:center;font-family:var(--f-hand);font-size:1.6rem;color:var(--ink-soft);margin:18px 0 0}
 
 
-/* ===== Revamp: a cosy scrapbook — knit backdrop, rounded paper panels, paper clips, bows and stickers ===== */
+/* ===== Revamp: a cosy scrapbook — paper clips, bows, stickers and script headings ===== */
 :root{
   --paper:#f3ece0;--paper-2:#e9dfcf;--ink:#3a302b;--ink-soft:#7a6a5d;
   --stamp-red:#b8332f;--stamp-teal:#5a7aa8;--stamp-ochre:#7f8f4c;--stamp-plum:#c76a80;
@@ -353,7 +353,7 @@ body.locked{overflow:hidden}
   --f-hand:"Caveat","Bradley Hand","Segoe Print",cursive;
   --f-title:"Pinyon Script","Snell Roundhand","Segoe Script",cursive;
   color-scheme:light}
-body{background:#efe7da url("deco/knit.svg") repeat;background-size:96px 40px;font-size:18px;font-weight:500;line-height:1.55;overflow-x:clip}
+body{font-size:18px;font-weight:500;line-height:1.55;overflow-x:clip}
 .label{font-weight:700;font-size:.74rem;letter-spacing:.32em}
 
 /* Header collage */
@@ -402,7 +402,7 @@ body{background:#efe7da url("deco/knit.svg") repeat;background-size:96px 40px;fo
 .panel{--pad:clamp(20px,5vw,56px);--panel-bg:var(--card);position:relative;background:var(--panel-bg);border-radius:30px;
   padding:clamp(60px,8vw,76px) var(--pad) clamp(44px,6vw,64px);margin-block:72px;
   box-shadow:inset 0 2px 0 rgba(255,255,255,.55),0 24px 44px -24px rgba(74,56,40,.5),0 2px 6px rgba(74,56,40,.08)}
-.panel > :not(.deco):not(.badge):not(.wavy-line){position:relative;z-index:1}
+.panel > :not(.deco):not(.badge):not(.paper){position:relative;z-index:1}
 .panel::before{content:"";position:absolute;top:-36px;left:clamp(28px,9%,90px);width:26px;height:84px;background:url("deco/clip.svg") center/contain no-repeat;z-index:4;transform:rotate(-5deg)}
 .panel:nth-of-type(even)::before{left:auto;right:clamp(28px,9%,90px);transform:rotate(6deg)}
 .badge{position:absolute;z-index:3;top:-34px;right:clamp(8px,5%,48px);width:104px;height:104px;display:grid;place-items:center;text-align:center;padding:20px;
@@ -413,8 +413,6 @@ body{background:#efe7da url("deco/knit.svg") repeat;background-size:96px 40px;fo
 .s-br{right:-14px;bottom:-24px;transform:rotate(10deg)}
 .s-tl{left:-14px;top:-30px;transform:rotate(-10deg)}
 .panel > .deco.spark{width:30px;right:22px;bottom:18px}
-.wavy-line{position:absolute;left:12px;top:12px;width:calc(100% - 24px);height:calc(100% - 24px);z-index:0;pointer-events:none;overflow:visible}
-.wavy-line .line{stroke:var(--sage);stroke-width:2;stroke-linejoin:round}
 
 .sec-head{flex-direction:column;align-items:center;text-align:center;gap:4px;border:0;padding:0;margin-bottom:36px}
 .sec-head .label{order:-1;margin:0;color:var(--accent,var(--cherry))}
@@ -422,14 +420,10 @@ body{background:#efe7da url("deco/knit.svg") repeat;background-size:96px 40px;fo
 .sec-head::after{content:"";width:118px;height:14px;margin-top:2px;opacity:.9;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 118 14'%3E%3Cpath d='M2 7q7-7 14 0t14 0 14 0 14 0 14 0 14 0 14 0 14 0' fill='none' stroke='%23d98b9b' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
 
-.p-pink{--panel-bg:#fbeef0;background:repeating-linear-gradient(90deg,#f7dce1 0 16px,#fcf0f2 16px 32px)}
-.p-blue{--panel-bg:#86a3cb;--head:#fffaf2;--accent:#fff0e6;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(0,0,0,.05)),#86a3cb}
-.p-blue .sec-head::after{filter:brightness(1.6)}
 .p-dark{--panel-bg:#1d1a19;--head:#f7efe4;--accent:#e7b9c2;color:#efe6da}
 .p-dark .reel-note{color:#cbbfb3}
 .p-open{background:transparent;box-shadow:none;padding-inline:0}
 .p-open::before{display:none}
-.p-blue .ghost-btn{color:#fffaf2}
 .ribbon::after{content:"";position:absolute;top:0;bottom:0;right:clamp(16px,6%,56px);width:28px;z-index:0;background-color:#fbf4ee;
   background-image:linear-gradient(90deg,rgba(196,53,47,.6) 50%,transparent 50%),linear-gradient(rgba(196,53,47,.6) 50%,transparent 50%);background-size:10px 10px}
 .ribbon .badge{right:auto;left:clamp(8px,5%,48px);transform:rotate(-7deg)}
@@ -472,7 +466,6 @@ body{background:#efe7da url("deco/knit.svg") repeat;background-size:96px 40px;fo
   padding:6px 24px;border-radius:999px;border:1.5px dashed #dba7b2;box-shadow:0 8px 16px -10px var(--shadow);margin-bottom:28px}
 .pola{border-radius:4px;border-color:#efe6d6}
 .pola::before{background:var(--tape)}
-.board > .pola:nth-child(3n+2)::before{width:24px;height:74px;top:-30px;left:28px;transform:rotate(-6deg);background:url("deco/clip.svg") center/contain no-repeat;-webkit-mask:none;mask:none}
 .pola .cap{font-weight:500;font-size:1.65rem}
 .pola .meta{font-weight:700;letter-spacing:.14em}
 .sheet{border-radius:22px;background:var(--card)}
@@ -489,6 +482,94 @@ footer{font-family:var(--f-title);font-size:2.4rem;color:var(--rose)}
   .ticket b{font-size:2.1rem}
   .ticket span{font-size:.58rem;letter-spacing:.16em}
 }
+
+
+/* ===== Revamp 2: torn paper scraps on a gingham tablecloth ===== */
+:root{
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --torn:url("deco/torn-top-a.svg") top/100% 16px no-repeat,linear-gradient(#000 0 0) center/100% calc(100% - 30px) no-repeat,url("deco/torn-bottom-a.svg") bottom/100% 16px no-repeat;
+  --torn-b:url("deco/torn-top-b.svg") top/100% 14px no-repeat,linear-gradient(#000 0 0) center/100% calc(100% - 26px) no-repeat,url("deco/torn-bottom-b.svg") bottom/100% 14px no-repeat;
+  --pink-ging:linear-gradient(90deg,rgba(238,143,177,.42) 50%,transparent 0) 0 0/26px 26px,linear-gradient(rgba(238,143,177,.42) 50%,transparent 0) 0 0/26px 26px,#fff7f9}
+body{background:var(--grain),linear-gradient(90deg,rgba(150,156,226,.2) 50%,transparent 0) 0 0/38px 38px,linear-gradient(rgba(150,156,226,.2) 50%,transparent 0) 0 0/38px 38px,#f2f1fb}
+
+/* sections: two layers of torn paper — a white fibrous edge under the coloured sheet */
+.panel{background:none;box-shadow:none;border-radius:0}
+.panel > .paper,.month > .paper{position:absolute;inset:0;z-index:0;pointer-events:none;background:#fffdf8;-webkit-mask:var(--torn);mask:var(--torn);transform:rotate(var(--tilt,-.5deg))}
+.panel > .paper::before,.month > .paper::before{content:"";position:absolute;inset:4px 3px;background:var(--grain),var(--pbg,var(--card));-webkit-mask:var(--torn-b);mask:var(--torn-b)}
+.panel:nth-of-type(even){--tilt:.6deg}
+.panel > .paper{filter:none}
+.pp-blush{--pbg:#f6c3cf;--panel-bg:#f6c3cf}
+.pp-sage{--pbg:#a9b985;--panel-bg:#a9b985;--accent:#2f4a74}
+.pp-sky{--pbg:#b9d1ee;--panel-bg:#b9d1ee}
+.pp-kraft{--pbg:#c9a47c;--panel-bg:#c9a47c;--accent:#7a1f1c}
+.pp-butter{--pbg:#f4e29a;--panel-bg:#f4e29a}
+.pp-gingham{--pbg:var(--pink-ging);--panel-bg:#fbe3ea}
+.pp-hot{--pbg:#ee90b2;--panel-bg:#ee90b2;--head:#fffaf6;--accent:#fff}
+.p-dark{--pbg:#1d1a19;--panel-bg:#1d1a19}
+.p-dark > .paper{background:#f4efe6}
+.sec-head .label{background:rgba(255,253,248,.72);color:var(--accent,var(--cherry));padding:5px 16px 4px;transform:rotate(-1.5deg);
+  -webkit-mask:linear-gradient(90deg,transparent 0 3px,#000 3px calc(100% - 3px),transparent 0);mask:linear-gradient(90deg,transparent 0 3px,#000 3px calc(100% - 3px),transparent 0)}
+.p-dark .sec-head .label{background:rgba(231,185,194,.25)}
+.pp-hot .sec-head .label{background:rgba(255,255,255,.3)}
+.panel > .deco.plaid{width:clamp(80px,12vw,120px)}
+.lt-side{background:var(--pink-ging)}
+.map-frame,.lt,.pass{box-shadow:0 16px 28px -14px rgba(60,40,30,.5)}
+
+/* ---------- Memories: one torn scrapbook page per month, photos stuck down in mixed styles ---------- */
+.p-open{padding-inline:0}
+.month{position:relative;padding:72px clamp(14px,4vw,44px) 56px;margin:0 0 56px}
+.month:nth-child(5n+1){--pbg:repeating-linear-gradient(transparent 0 30px,rgba(110,140,200,.35) 30px 31px),linear-gradient(90deg,transparent 38px,rgba(220,90,90,.45) 38px 39px,transparent 0),#fcfaf4;--tilt:-.6deg}
+.month:nth-child(5n+2){--pbg:linear-gradient(rgba(120,150,200,.22) 1px,transparent 0) 0 0/22px 22px,linear-gradient(90deg,rgba(120,150,200,.22) 1px,transparent 0) 0 0/22px 22px,#f8f5ec;--tilt:.5deg}
+.month:nth-child(5n+3){--pbg:#b3c290;--tilt:-.4deg}
+.month:nth-child(5n+4){--pbg:#b9d1ee;--tilt:.6deg}
+.month:nth-child(5n){--pbg:var(--pink-ging);--tilt:-.5deg}
+.month h3{position:relative;z-index:2;display:table;margin:-104px auto 30px;font-family:var(--f-title);font-style:normal;font-weight:400;font-size:clamp(2.2rem,7vw,3rem);line-height:1.2;color:var(--denim-deep);
+  background:#fffdf8;padding:10px 30px 6px;border:0;border-radius:0;transform:rotate(-2deg);box-shadow:0 8px 14px -8px rgba(60,40,30,.45)}
+.month h3::before{content:"";position:absolute;top:-12px;left:50%;width:90px;height:24px;transform:translateX(-50%) rotate(3deg);background:var(--tape);
+  -webkit-mask:linear-gradient(90deg,transparent 0 3px,#000 3px calc(100% - 3px),transparent 0);mask:linear-gradient(90deg,transparent 0 3px,#000 3px calc(100% - 3px),transparent 0)}
+.month:nth-child(even) h3{transform:rotate(1.5deg)}
+.month > .board{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:34px clamp(18px,3vw,34px)}
+.mem{position:relative;width:clamp(170px,27%,250px);margin-top:var(--dy,0)}
+.mem > .pola{position:relative;z-index:1}
+.mem .peek{position:absolute;top:4%;right:-9%;width:80%;aspect-ratio:1;object-fit:cover;background:#fff;border:6px solid #fff;border-bottom-width:18px;transform:rotate(var(--pr,8deg));
+  box-shadow:0 8px 16px -8px rgba(60,40,30,.5);filter:sepia(.15) saturate(.9);pointer-events:none}
+@media (max-width:620px){
+  .month > .board{gap:30px 14px}
+  .mem{width:calc(50% - 8px)}
+  .mem .peek{right:-5%;border-width:4px;border-bottom-width:12px}
+}
+/* classic polaroid with washi tape */
+.v-pola .pola{padding:10px 10px 12px}
+/* torn-out photo, paper clip, caption on a sticky note */
+.pola.v-torn{background:none;border:0;padding:0;box-shadow:none;filter:drop-shadow(0 8px 10px rgba(60,40,30,.35))}
+.pola.v-torn::before{width:22px;height:70px;top:-28px;left:22px;transform:rotate(-8deg);background:url("deco/clip.svg") center/contain no-repeat;-webkit-mask:none;mask:none;z-index:2}
+.v-torn .ph{padding:7px;background:#fffdf8;-webkit-mask:url("deco/torn-mask.svg") center/100% 100%;mask:url("deco/torn-mask.svg") center/100% 100%}
+.v-torn .note{background:#f7e27e;width:86%;margin:-20px -6px 0 auto;padding:8px 10px 8px;transform:rotate(3deg);position:relative;box-shadow:0 6px 10px -6px rgba(60,40,30,.5)}
+.v-torn .ph .count{right:12px;bottom:12px}
+/* postage stamp with a label-maker caption */
+.pola.v-stamp{background:none;border:0;padding:0;box-shadow:none;filter:drop-shadow(0 8px 10px rgba(60,40,30,.32))}
+.pola.v-stamp::before{display:none}
+.v-stamp .ph{padding:12px;background:#fffdf8;
+  -webkit-mask:radial-gradient(circle 5px,transparent 97%,#000) -7px -7px/14px 14px round,linear-gradient(#000 0 0) 7px 7px/calc(100% - 14px) calc(100% - 14px) no-repeat;
+  mask:radial-gradient(circle 5px,transparent 97%,#000) -7px -7px/14px 14px round,linear-gradient(#000 0 0) 7px 7px/calc(100% - 14px) calc(100% - 14px) no-repeat}
+.v-stamp .ph .count{right:16px;bottom:16px}
+.v-stamp .note{display:inline-block;background:#211c1b;color:#fbf6ee;margin:-14px 0 0 10px;padding:4px 12px 6px;transform:rotate(-2.5deg);position:relative;max-width:92%}
+.v-stamp .cap{font-family:var(--f-display);font-weight:700;font-size:1rem;letter-spacing:.14em;text-transform:uppercase;margin:0;line-height:1.3}
+.v-stamp .meta{color:#d8cfc3}
+/* photo pinned to a torn kraft scrap */
+.pola.v-kraft{background:var(--grain),#cfae86;border:0;padding:24px 14px 14px;box-shadow:none;-webkit-mask:url("deco/torn-mask.svg") center/100% 100%;mask:url("deco/torn-mask.svg") center/100% 100%}
+.mem.v-kraft{filter:drop-shadow(0 8px 10px rgba(60,40,30,.35))}
+.pola.v-kraft::before{width:16px;height:16px;top:8px;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle at 35% 30%,#ff8e8e,#c4231f 60%,#7c1210);-webkit-mask:none;mask:none;z-index:2;box-shadow:0 2px 2px rgba(0,0,0,.3)}
+.v-kraft .ph{box-shadow:0 2px 4px rgba(0,0,0,.25)}
+.v-kraft .cap{color:#2d241f}
+.v-kraft .meta{color:#5a4636}
+/* sticky note for memories without photos */
+.pola.v-sticky{background:linear-gradient(170deg,#fbe98f,#f5d963);border:0;padding:30px 16px 18px;min-height:170px;box-shadow:0 12px 16px -10px rgba(60,40,30,.5)}
+.pola.v-sticky::before{width:70px}
+.v-sticky .ph{display:none}
+.v-sticky .cap{font-size:2rem;margin:0}
+.v-sticky .snip{font-family:var(--f-hand);font-size:1.25rem;line-height:1.15;margin:6px 0 8px;color:#4b3b2e}
+.mem.v-sticky{width:clamp(170px,24%,220px)}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -552,7 +633,7 @@ footer{font-family:var(--f-title);font-size:2.4rem;color:var(--rose)}
     <div class="offline" id="offline" hidden>Open this page signed in to Claude to add and save memories.</div>
   </header>
 
-  <section class="panel p-cream wavy" aria-labelledby="h-song">
+  <section class="panel pp-blush" aria-labelledby="h-song">
     <span class="badge" aria-hidden="true">press play ♡</span>
     <img class="deco s-br" src="deco/bow-sage.svg" alt="">
     <div class="sec-head"><h2 id="h-song">Now playing</h2><span class="label">side A · track 1</span></div>
@@ -582,7 +663,7 @@ footer{font-family:var(--f-title);font-size:2.4rem;color:var(--rose)}
 
   <section class="panel p-dark" aria-labelledby="h-reel">
     <span class="badge" aria-hidden="true">11 frames</span>
-    <img class="deco s-bl" src="deco/cherries.svg" alt="">
+    <img class="deco s-bl" src="deco/cherries.svg" alt=""><img class="deco s-br plaid" src="deco/plaid-scrap.svg" alt="">
     <div class="sec-head"><h2 id="h-reel">Our film roll</h2><span class="label">11 exposures · developed with love</span></div>
     <div class="reel-wrap" id="reelWrap">
       <div class="reel" role="img" aria-label="A strip of photos of us">
@@ -593,14 +674,14 @@ footer{font-family:var(--f-title);font-size:2.4rem;color:var(--rose)}
     <p class="reel-note">tap the roll to pause it</p>
   </section>
 
-  <section class="panel p-pink" aria-labelledby="h-places">
+  <section class="panel pp-sage" aria-labelledby="h-places">
     <span class="badge" aria-hidden="true">stamped ✈</span>
     <img class="deco s-bl bow" src="deco/bow-pink.svg" alt=""><img class="deco s-br spark" src="deco/sparkle.svg" alt="">
     <div class="sec-head"><h2 id="h-places">Places we've been</h2><span class="label" id="placesLabel">passport</span></div>
     <div class="stamps" id="stamps"></div>
   </section>
 
-  <section class="panel p-cream" aria-labelledby="h-map">
+  <section class="panel pp-sky" aria-labelledby="h-map">
     <span class="badge" aria-hidden="true">7,376 km</span>
     <img class="deco s-bl star" src="deco/star-denim.svg" alt="">
     <div class="sec-head"><h2 id="h-map">Map of us</h2><span class="label">7,376 km apart</span></div>
@@ -635,7 +716,7 @@ footer{font-family:var(--f-title);font-size:2.4rem;color:var(--rose)}
     <p class="map-note">More pins to come as we travel together.</p>
   </section>
 
-  <section class="panel p-blue ribbon" aria-labelledby="h-letter">
+  <section class="panel pp-kraft ribbon" aria-labelledby="h-letter">
     <span class="badge" aria-hidden="true">for your eyes only</span>
     <img class="deco rib-bow" src="deco/bow-red.svg" alt=""><img class="deco s-bl heart" src="deco/heart-gingham.svg" alt="">
     <div class="sec-head"><h2 id="h-letter">A letter for you</h2><span class="label">read me first</span></div>
@@ -653,7 +734,7 @@ footer{font-family:var(--f-title);font-size:2.4rem;color:var(--rose)}
     <div class="reveal-row" id="revealRow"><button class="ghost-btn" id="revealBtn" type="button">Too impatient? Reveal the letter</button></div>
   </section>
 
-  <section class="panel p-cream wavy" aria-labelledby="h-until">
+  <section class="panel pp-butter" aria-labelledby="h-until">
     <span class="badge" aria-hidden="true">see you soon</span>
     <img class="deco s-br bow" src="deco/bow-pink.svg" alt="">
     <div class="sec-head"><h2 id="h-until">Until I see you</h2><span class="label">Sydney → Hong Kong</span></div>
@@ -687,14 +768,14 @@ footer{font-family:var(--f-title);font-size:2.4rem;color:var(--rose)}
     </div>
   </section>
 
-  <section class="panel p-pink" aria-labelledby="h-coupons">
+  <section class="panel pp-gingham" aria-labelledby="h-coupons">
     <span class="badge" aria-hidden="true">no expiry</span>
-    <img class="deco s-bl heart" src="deco/heart-gingham.svg" alt=""><img class="deco s-br spark" src="deco/sparkle.svg" alt="">
+    <img class="deco s-bl plaid" src="deco/plaid-scrap.svg" alt=""><img class="deco s-br spark" src="deco/sparkle.svg" alt="">
     <div class="sec-head"><h2 id="h-coupons">Love coupons</h2><span class="label">redeem anytime · no expiry</span></div>
     <div class="coupons" id="coupons"></div>
   </section>
 
-  <section class="panel p-blue" aria-labelledby="h-bucket">
+  <section class="panel pp-hot" aria-labelledby="h-bucket">
     <span class="badge" aria-hidden="true">someday</span>
     <img class="deco s-br star" src="deco/star-denim.svg" alt="">
     <div class="sec-head"><h2 id="h-bucket">Our bucket list</h2><span class="label">someday, together</span></div>
@@ -841,15 +922,24 @@ function renderStamps() {
   }
 }
 
-function polaroid(m, ghost) {
+const CARD_STYLES = ["v-pola", "v-torn", "v-stamp", "v-kraft"];
+function polaroid(m, ghost, i = 0) {
   const h = hash(m.id || m.title);
-  const b = el(ghost ? "div" : "button", "pola" + (ghost ? " ghost" : ""));
+  const photos = m.photos || [];
+  const style = photos.length ? CARD_STYLES[i % CARD_STYLES.length] : "v-sticky";
+  const wrap = el("div", "mem " + style);
+  wrap.style.setProperty("--dy", `${(h % 4) * 10}px`);
+  const b = el(ghost ? "div" : "button", "pola " + style + (ghost ? " ghost" : ""));
   if (!ghost) b.type = "button";
-  b.style.setProperty("--r", `${(h % 7) - 3}deg`);
+  b.style.setProperty("--r", `${(h % 9) - 4}deg`);
   b.style.setProperty("--tr", `${(h % 11) - 5}deg`);
   if (ghost) b.append(el("span", "ghost-tag", "EXAMPLE"));
+  if (photos.length > 1) {
+    const peek = el("img", "peek"); peek.loading = "lazy"; peek.alt = ""; peek.src = photoUrl(photos[1]);
+    peek.style.setProperty("--pr", `${(h % 2 ? 1 : -1) * (6 + h % 5)}deg`);
+    wrap.append(peek);
+  }
   const ph = el("div", "ph");
-  const photos = m.photos || [];
   if (photos.length) {
     const img = el("img"); img.loading = "lazy"; img.alt = m.title || "Photo"; img.src = photoUrl(photos[0]);
     ph.append(img);
@@ -857,13 +947,17 @@ function polaroid(m, ghost) {
   } else {
     ph.classList.add("nophoto"); ph.append(el("span", null, m.place || m.title || "♡"));
   }
-  b.append(ph, el("div", "cap", m.title));
+  const note = el("div", "note");
+  note.append(el("div", "cap", m.title));
+  if (!photos.length && m.note) note.append(el("p", "snip", m.note));
   const meta = el("div", "meta");
   meta.append(el("span", null, fmtDate(m.date)));
   if (m.place) meta.append(el("span", null, "· " + m.place));
-  b.append(meta);
+  note.append(meta);
+  b.append(ph, note);
   if (!ghost) b.addEventListener("click", () => openViewer(m));
-  return b;
+  wrap.append(b);
+  return wrap;
 }
 
 function renderMonths() {
@@ -886,13 +980,13 @@ function renderMonths() {
     if (!groups.has(key)) groups.set(key, { label: d ? `${MONTHS_LONG[d.getMonth()]} ${d.getFullYear()}` : "Some day", items: [] });
     groups.get(key).items.push(m);
   }
-  for (const g of groups.values()) {
+  [...groups.values()].forEach((g, gi) => {
     const wrap = el("div", "month");
-    wrap.append(el("h3", null, g.label));
+    wrap.append(el("div", "paper"), el("h3", null, g.label));
     const board = el("div", "board");
-    g.items.forEach(m => board.append(polaroid(m)));
+    g.items.forEach((m, i) => board.append(polaroid(m, false, i + gi)));
     wrap.append(board); box.append(wrap);
-  }
+  });
 }
 
 function render() { renderHeader(); renderStamps(); renderMonths(); }
@@ -1376,35 +1470,9 @@ $("addBtn").hidden = true;
 render(); renderPoster();
 })();
 
-/* ---------- wavy hand-drawn frames ---------- */
-function drawWavy(sec) {
-  let svg = sec.querySelector(":scope > svg.wavy-line");
-  if (!svg) {
-    svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("class", "wavy-line"); svg.setAttribute("aria-hidden", "true");
-    svg.innerHTML = '<path class="guide" fill="none"/><path class="line" fill="none"/>';
-    sec.prepend(svg);
-  }
-  const inset = 12, w = sec.clientWidth - inset * 2, h = sec.clientHeight - inset * 2;
-  if (w < 40 || h < 40) return;
-  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-  const r = 22, a = 2.6, g = svg.querySelector(".guide");
-  g.setAttribute("d", `M${r} 4H${w - r}A${r - 4} ${r - 4} 0 0 1 ${w - 4} ${r}V${h - r}A${r - 4} ${r - 4} 0 0 1 ${w - r} ${h - 4}H${r}A${r - 4} ${r - 4} 0 0 1 4 ${h - r}V${r}A${r - 4} ${r - 4} 0 0 1 ${r} 4Z`);
-  const len = g.getTotalLength(), waves = Math.round(len / 34), step = 3;
-  let d = "";
-  for (let t = 0; t <= len; t += step) {
-    const p = g.getPointAtLength(t), q = g.getPointAtLength(Math.min(len, t + 1));
-    let tx = q.x - p.x, ty = q.y - p.y; const m = Math.hypot(tx, ty) || 1;
-    const off = a * Math.sin(2 * Math.PI * waves * t / len);
-    d += (t ? "L" : "M") + (p.x - ty / m * off).toFixed(1) + " " + (p.y + tx / m * off).toFixed(1);
-  }
-  svg.querySelector(".line").setAttribute("d", d + "Z");
-}
-{
-  const wavies = document.querySelectorAll(".panel.wavy");
-  const ro = new ResizeObserver(es => es.forEach(e => drawWavy(e.target)));
-  wavies.forEach(w => ro.observe(w));
-}
+
+/* ---------- torn paper behind each section ---------- */
+document.querySelectorAll(".panel:not(.p-open)").forEach(p => { const d = document.createElement("div"); d.className = "paper"; p.prepend(d); });
 </script>
 
 </body>
