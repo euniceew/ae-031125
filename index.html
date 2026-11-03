@@ -730,9 +730,7 @@ html{scroll-behavior:smooth}
 <script>
 /* Anniversary gate: a sweet lock, not real security (the files are public on GitHub) */
 (() => {
-  const KEY = "yearofus-unlocked", gate = document.getElementById("gate");
-  let open = false; try { open = localStorage.getItem(KEY) === "1"; } catch {}
-  if (open) { gate.remove(); return; }
+  const gate = document.getElementById("gate");
   document.body.classList.add("gated");
   const OK = new Set(["75ca6b018e76d509ed8739d018c95ff53038abe6067d37b1c2d3beab7b949a51", "b457dce9a0b11e036c46a2d6f34251fcd4d68d57a518cec941deaeaaead1c63e",
     "abe6ba8d2f4b08fda0eb416a6e922e9a0b3d618ba0b9a7026b97884815b1e927", "8d3fb07cfba6e6626ed5dd277fb5c2661185cee6982902f4240cccbe28f4b81c"]);
@@ -744,7 +742,6 @@ html{scroll-behavior:smooth}
     const input = document.getElementById("gateInput"), msg = document.getElementById("gateMsg");
     const digits = input.value.replace(/\D/g, "");
     if (digits && OK.has(await sha(digits))) {
-      try { localStorage.setItem(KEY, "1"); } catch {}
       msg.textContent = "welcome back, my love ♡";
       gate.classList.add("opening"); document.body.classList.remove("gated");
       setTimeout(() => gate.remove(), 900);
