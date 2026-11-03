@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Special+Elite&family=Reenie+Beanie&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Dancing+Script:wght@500;700&family=LXGW+WenKai+TC&family=Caveat:wght@500;600&family=La+Belle+Aurore&family=Mrs+Saint+Delafield&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Special+Elite&family=Reenie+Beanie&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Dancing+Script:wght@500;700&family=LXGW+WenKai+TC&family=Caveat:wght@500;600&family=La+Belle+Aurore&family=Sacramento&family=Mrs+Saint+Delafield&display=swap">
 <style>
 /* Layout: a scrapbook on aged paper. Ticket-stub hero, a sheet of passport stamps, then polaroids taped down month by month. */
 :root{
@@ -134,7 +134,7 @@ footer{text-align:center;padding-top:24px;font-family:var(--f-hand);font-size:1.
 /* Intro: a streaming-style title page for our show, always on a dark screen */
 :root{--screen:#0b0b0b;--screen-ink:#f5f1ea;--screen-dim:#a39d94;--title-red:#d0312d;--chip:rgba(120,110,104,.55);
   --f-script-title:"Pinyon Script","Snell Roundhand","Segoe Script",cursive;--f-sans:"Cormorant Garamond","Cormorant",Garamond,Georgia,serif;--f-mark:"Cormorant Garamond",Garamond,Georgia,serif;
-  --f-script:"La Belle Aurore","LXGW WenKai TC","Snell Roundhand","Segoe Script",cursive;--f-letter-title:"Mrs Saint Delafield","LXGW WenKai TC","Snell Roundhand",cursive;
+  --f-script:"Sacramento","LXGW WenKai TC","Snell Roundhand","Segoe Script",cursive;--f-letter-title:"Mrs Saint Delafield","LXGW WenKai TC","Snell Roundhand",cursive;
   --wine:#5a0f17;--wine-ink:#5b1a1f;--letter-paper:#f4ede0}
 body.locked{overflow:hidden}
 .intro{position:fixed;inset:0;z-index:50;background:var(--screen);color:var(--screen-ink);overflow-y:auto;overscroll-behavior:contain;transition:opacity .7s ease;font-family:var(--f-sans);
@@ -571,6 +571,62 @@ body{background:var(--grain),linear-gradient(90deg,rgba(150,156,226,.2) 50%,tran
 .v-sticky .snip{font-family:var(--f-hand);font-size:1.25rem;line-height:1.15;margin:6px 0 8px;color:#4b3b2e}
 .mem.v-sticky{width:clamp(170px,24%,220px)}
 
+
+/* ---------- Love letter: lined note on cherry paper, polaroid, envelope and photobooth strip ---------- */
+.pp-cherry{--pbg:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.08),transparent 60%),#8e1b22;--panel-bg:#8e1b22;--head:#fff4ec;--accent:#8e1b22}
+.pp-cherry > .paper::before{background:var(--grain),var(--grain),var(--pbg)}
+.pp-cherry .ghost-btn{color:#fff4ec}
+.lt2{max-width:900px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:8px 34px;align-items:start}
+.ily{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:5px;transform:rotate(-3deg);margin:0 0 -18px;position:relative;z-index:5}
+.ily b{display:inline-block;padding:3px 9px 5px;font-size:clamp(2rem,7vw,3.2rem);line-height:1;font-weight:700;box-shadow:2px 3px 0 rgba(0,0,0,.28);transform:rotate(var(--r,0deg))}
+.ily i{width:14px}
+.ily b:nth-of-type(6n+1){--r:-6deg;background:#fffdf6;color:#b3212a;font-family:var(--f-display)}
+.ily b:nth-of-type(6n+2){--r:4deg;background:#b3212a;color:#fff7f0;font-family:"Special Elite",monospace;font-weight:400}
+.ily b:nth-of-type(6n+3){--r:-3deg;background:#f1e5c6;color:#1d1a19;font-family:"Libre Caslon Display",serif;font-weight:400}
+.ily b:nth-of-type(6n+4){--r:7deg;background:#fff;color:#b3212a;font-family:var(--f-hand);font-weight:600}
+.ily b:nth-of-type(6n+5){--r:-5deg;background:#1d1a19;color:#f7efe4;font-family:var(--f-display);font-style:italic}
+.ily b:nth-of-type(6n){--r:3deg;background:#f6c3cf;color:#8e1f2c;font-family:"Special Elite",monospace;font-weight:400}
+.lt-stage{position:relative;padding:70px 0 120px;min-width:0}
+.lt-pola{position:absolute;z-index:4;left:-14px;top:0;width:clamp(140px,30%,220px);margin:0;background:#fff;padding:9px 9px 38px;transform:rotate(-6deg);box-shadow:0 12px 20px -10px rgba(0,0,0,.6)}
+.lt-pola img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.lt-pola figcaption{position:absolute;left:0;right:0;bottom:4px;text-align:center;font-family:var(--f-script);font-size:1.9rem;line-height:1;color:#a01d26}
+.lt-pola::before{content:"♥";position:absolute;top:-22px;right:20px;font-size:2.6rem;line-height:1;color:#e9707f;transform:rotate(-14deg);text-shadow:0 2px 3px rgba(0,0,0,.25)}
+.lt-under{position:absolute;z-index:0;left:4%;right:-2%;top:84px;bottom:110px;background:var(--grain),#d9d5cf;transform:rotate(3deg);box-shadow:0 10px 18px -10px rgba(0,0,0,.5)}
+.envelope{position:absolute;z-index:0;right:-4%;bottom:0;width:72%;height:230px;background:linear-gradient(160deg,#a8c2e2,#8fadd6);transform:rotate(4deg);box-shadow:0 12px 20px -12px rgba(0,0,0,.6)}
+.envelope::before{content:"";position:absolute;inset:0;background:linear-gradient(#b7cde9,#9db8de);clip-path:polygon(0 0,50% 58%,100% 0);filter:drop-shadow(0 2px 2px rgba(0,0,0,.2))}
+.envelope::after{content:"";position:absolute;inset:0;background:linear-gradient(20deg,transparent 49.6%,rgba(40,60,100,.18) 50%,transparent 50.4%),linear-gradient(-20deg,transparent 49.6%,rgba(40,60,100,.18) 50%,transparent 50.4%)}
+.seal{position:absolute;z-index:1;left:50%;top:58%;transform:translate(-50%,-50%) rotate(-8deg);font-size:3.4rem;line-height:1;color:#c0202b;text-shadow:0 0 0 #c0202b,0 2px 0 #7d0f17,0 4px 6px rgba(0,0,0,.35)}
+.lt-sheet{position:relative;z-index:2;transform:rotate(-1.2deg);filter:drop-shadow(0 14px 18px rgba(0,0,0,.4))}
+.lt-paper{background:var(--grain),linear-gradient(90deg,transparent 30px,rgba(214,90,100,.45) 30px 31px,transparent 31px),repeating-linear-gradient(transparent 0 33px,rgba(214,120,130,.32) 33px 34px),#f8f3e8;
+  background-position:0 0,0 0,0 18px;color:#9b1c25;font-family:var(--f-script);padding:30px clamp(20px,4.5vw,46px) 40px clamp(40px,6vw,60px);
+  -webkit-mask:var(--torn);mask:var(--torn)}
+.lt-paper .pola-space{float:left;width:clamp(150px,34%,240px);height:272px;margin-left:calc(-1 * clamp(40px,6vw,60px))}
+.lt-paper .date{font-size:1.7rem;line-height:34px;margin:0;text-align:right}
+.lt-paper h3{font-family:var(--f-letter-title);font-size:clamp(2.8rem,7vw,3.9rem);line-height:1.1;color:#8e1b22;margin:4px 0 14px;text-align:right}
+.lt-paper .greet,.lt-paper .text,.lt-paper .sign{font-size:clamp(1.55rem,4.6vw,1.85rem);line-height:34px;margin:0 0 34px}
+.lt-paper .sign{margin:0}
+.lt-paper .doodle{display:inline-block;font-family:var(--f-display);font-size:2.6rem;line-height:0;transform:rotate(-10deg);margin-left:6px;vertical-align:middle}
+.booth{position:relative;padding-top:120px;display:grid;justify-items:center}
+.booth .strip{transform:rotate(3deg);box-shadow:0 14px 22px -10px rgba(0,0,0,.6)}
+.booth-bow{position:absolute;z-index:2;top:96px;width:86px;transform:rotate(-8deg);filter:drop-shadow(0 4px 4px rgba(0,0,0,.3))}
+.booth-heart{position:absolute;z-index:2;bottom:-28px;left:-14px;width:72px;transform:rotate(-14deg);filter:drop-shadow(0 4px 4px rgba(0,0,0,.3))}
+@media (max-width:760px){
+  .lt2{grid-template-columns:1fr}
+  .lt-stage{padding:150px 0 110px}
+  .lt-pola{width:46%;left:-6px}
+  .lt-paper .pola-space{width:52%;height:118px}
+  .lt-paper h3{text-align:right}
+  .lt-under{top:162px;left:3%;right:3%}
+  .envelope{width:86%;height:200px;right:0}
+  .ily{flex-wrap:nowrap;gap:3px}
+  .ily b{font-size:clamp(1.5rem,7.4vw,2.1rem);padding:2px 6px 4px}
+  .ily i{width:8px}
+  .booth{padding:20px 0 0}
+  .booth .strip{width:100%;max-width:340px;grid-template-columns:repeat(3,1fr);padding:9px;transform:rotate(-2deg)}
+  .booth-bow{top:-6px;right:-10px;width:70px}
+  .booth-heart{left:-10px;bottom:-24px;width:58px}
+}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -716,20 +772,34 @@ body{background:var(--grain),linear-gradient(90deg,rgba(150,156,226,.2) 50%,tran
     <p class="map-note">More pins to come as we travel together.</p>
   </section>
 
-  <section class="panel pp-kraft ribbon" aria-labelledby="h-letter">
+  <section class="panel pp-cherry" aria-labelledby="h-letter">
     <span class="badge" aria-hidden="true">for your eyes only</span>
-    <img class="deco rib-bow" src="deco/bow-red.svg" alt=""><img class="deco s-bl heart" src="deco/heart-gingham.svg" alt="">
+    <img class="deco s-bl star" src="deco/star-denim.svg" alt=""><img class="deco s-br spark" src="deco/sparkle.svg" alt="">
     <div class="sec-head"><h2 id="h-letter">A letter for you</h2><span class="label">read me first</span></div>
-    <article class="lt">
-      <div class="lt-paper" id="ltPaper">
-        <canvas class="scratch" id="scratch" aria-label="Scratch to reveal the letter"></canvas>
+    <article class="lt2">
+      <div class="ily" aria-hidden="true"><b>i</b><i></i><b>l</b><b>o</b><b>v</b><b>e</b><i></i><b>y</b><b>o</b><b>u</b></div>
+      <div class="lt-stage">
+        <figure class="lt-pola"><img src="photos/120b106a980215d0392ee5148488a6fa.jpg" alt="The two of us"><figcaption>u + me = &lt;3</figcaption></figure>
+        <div class="envelope" aria-hidden="true"><span class="seal">♥</span></div>
+        <div class="lt-under" aria-hidden="true"></div>
+        <div class="lt-sheet">
+          <div class="lt-paper" id="ltPaper">
+            <span class="pola-space" aria-hidden="true"></span>
+            <canvas class="scratch" id="scratch" aria-label="Scratch to reveal the letter"></canvas>
+        <p class="date">3 nov 2026</p>
         <h3>One Year of Loving U</h3>
         <p class="greet">To my favourite person,</p>
         <p class="text">Happi anniversary! can't believe its been a year feels like yesterday we were still going on dates hehe. i still remember how nervous i felt the first time we went out together, 完全唔夠膽同你講野超級超級緊張我對其他人完全唔會咁樣 &gt;&lt; thank you for loving me, and always being here for me. I love calling you, and seeing you all the time, even if its through a screen. 我已經唔記得未有你之前嘅生活係點, and i never wanna remember again. i love having you in my life, texting u and receiving your qq selfies, calling u at night &amp; watching tv shows together (hmm what if we watch the mentalist hehe).</p>
         <p class="text">im so proud of the couple we have become, and i'm so lucky to be able to call you mine since last year, and for the rest of my life. i will always be here for you no matter what, i will always love you and ill never stop becoming better for you. one more month till we meet, but one lifetime to go! i love u babyyy, happy one year of us :)</p>
-        <p class="sign">Love,<br>prettiest girl</p>
+        <p class="sign">Love,<br>prettiest girl <span class="doodle" aria-hidden="true">♡</span></p>
+          </div>
+        </div>
       </div>
-      <div class="lt-side"><div class="strip"><div class="fr"><img src="photos/356077552c9df3f0aa6e81c91f05f799.jpg" alt=""></div><div class="fr"><img src="photos/5acb02413718f116f00811ea576084ba.jpg" alt=""></div><div class="fr"><img src="photos/dadfe94774b95477ef19a87ff82ff32b.jpg" alt=""></div></div></div>
+      <div class="booth">
+        <img class="booth-bow" src="deco/bow-red.svg" alt="">
+        <div class="strip"><div class="fr"><img src="photos/356077552c9df3f0aa6e81c91f05f799.jpg" alt=""></div><div class="fr"><img src="photos/5acb02413718f116f00811ea576084ba.jpg" alt=""></div><div class="fr"><img src="photos/dadfe94774b95477ef19a87ff82ff32b.jpg" alt=""></div></div>
+        <img class="booth-heart" src="deco/heart-gingham.svg" alt="">
+      </div>
     </article>
     <div class="reveal-row" id="revealRow"><button class="ghost-btn" id="revealBtn" type="button">Too impatient? Reveal the letter</button></div>
   </section>
@@ -1396,15 +1466,15 @@ renderCoupons(); renderBucket();
     cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.globalCompositeOperation = "source-over";
     const g = ctx.createLinearGradient(0, 0, w, h);
-    [["0", "#b39a6c"], [".22", "#eadcb8"], [".45", "#c2a876"], [".7", "#f1e5c6"], ["1", "#a88c5c"]].forEach(([o, c]) => g.addColorStop(+o, c));
+    [["0", "#d98c9a"], [".22", "#f7d6dc"], [".45", "#e2a3b0"], [".7", "#fbe4e8"], ["1", "#c97586"]].forEach(([o, c]) => g.addColorStop(+o, c));
     ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
     for (let i = 0; i < w * h / 90; i++) { ctx.fillStyle = `rgba(255,255,255,${Math.random() * .3})`; ctx.fillRect(Math.random() * w, Math.random() * h, 1, 1); }
-    ctx.fillStyle = "rgba(90,15,23,.16)"; ctx.font = "16px Georgia, serif"; ctx.textAlign = "center";
+    ctx.fillStyle = "rgba(142,27,34,.2)"; ctx.font = "16px Georgia, serif"; ctx.textAlign = "center";
     for (let y = 30; y < h; y += 46) for (let x = (y / 46 % 2) * 30 + 20; x < w; x += 60) ctx.fillText("♥", x, y);
-    ctx.fillStyle = "rgba(244,237,224,.75)"; ctx.fillRect(w / 2 - Math.min(170, w * .42), h / 2 - 58, Math.min(340, w * .84), 104);
-    ctx.fillStyle = "#5b1a1f";
-    ctx.font = `700 ${Math.round(Math.min(42, w / 8.5))}px "Dancing Script", cursive`; ctx.fillText("A letter for you", w / 2, h / 2 - 6);
-    ctx.font = `13px "Special Elite", "Courier New", monospace`; ctx.fillText("S C R A T C H   T O   R E A D  ♡", w / 2, h / 2 + 28);
+    ctx.fillStyle = "rgba(255,248,242,.82)"; ctx.fillRect(w / 2 - Math.min(170, w * .42), h / 2 - 58, Math.min(340, w * .84), 104);
+    ctx.fillStyle = "#8e1b22";
+    ctx.font = `${Math.round(Math.min(52, w / 7))}px "Mrs Saint Delafield", cursive`; ctx.fillText("A letter for you", w / 2, h / 2 - 6);
+    ctx.font = `600 12px "Cormorant Garamond", Georgia, serif`; ctx.fillText("S C R A T C H   T O   R E A D  ♡", w / 2, h / 2 + 28);
   }
   paint();
   document.fonts?.ready?.then(() => { if (!started) paint(); });
