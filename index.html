@@ -681,6 +681,37 @@ body.gated{overflow:hidden}
 .otxt{line-height:1.15}
 .result .ghost-btn{color:#2d2a33}
 
+
+/* ---------- Index sidebar: a contents card with coloured paper tabs ---------- */
+html{scroll-behavior:smooth}
+.panel,.hero{scroll-margin-top:56px}
+.nav-toggle{position:fixed;z-index:45;left:0;top:calc(18px + env(safe-area-inset-top,0px));background:var(--cherry);color:#fff7f2;border:0;border-radius:0 999px 999px 0;
+  padding:10px 18px 10px 14px;font-family:var(--f-hand);font-weight:600;font-size:1.3rem;line-height:1;cursor:pointer;box-shadow:0 8px 16px -8px rgba(60,20,30,.6)}
+.nav-toggle span{color:#ffd1dc}
+.nav-scrim{position:fixed;inset:0;z-index:46;background:rgba(40,30,50,.35)}
+.sidenav{position:fixed;z-index:47;left:0;top:0;bottom:0;width:min(270px,82vw);overflow-y:auto;padding:calc(26px + env(safe-area-inset-top,0px)) 0 24px;
+  background:var(--grain),repeating-linear-gradient(transparent 0 31px,rgba(110,140,200,.3) 31px 32px),#fffdf8;background-position:0 0,0 14px;
+  box-shadow:6px 0 24px -8px rgba(40,30,50,.45);transform:translateX(-105%);transition:transform .35s ease;visibility:hidden}
+.sidenav.open{transform:none;visibility:visible}
+.nav-title{font-family:var(--f-title);font-size:2.6rem;line-height:1;color:var(--denim-deep);margin:0 0 14px 24px}
+.sidenav ol{list-style:none;margin:0;padding:0 0 0 14px;display:grid;gap:6px}
+.sidenav a{display:flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;margin-right:-1px;color:#3a302b;text-decoration:none;font-family:var(--f-hand);font-weight:500;font-size:1.4rem;line-height:1.1;
+  border-radius:8px 0 0 8px;transition:background .2s,transform .2s}
+.sidenav a::before{content:"";flex:none;width:16px;height:22px;background:var(--tab);border-radius:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);transform:rotate(-4deg)}
+.sidenav a:hover{background:rgba(238,143,177,.16)}
+.sidenav a.here{background:var(--tab);color:#2a2523;transform:translateX(6px);box-shadow:0 4px 8px -5px rgba(0,0,0,.35)}
+.sidenav a.here[style*="#2a2523"],.sidenav a.here[style*="#8e1b22"]{color:#fff7f2}
+/* wide screens: the contents card stays pinned beside the scrapbook */
+@media (min-width:1400px){
+  .nav-toggle,.nav-scrim{display:none!important}
+  .sidenav{transform:rotate(-1.5deg);visibility:visible;top:50%;bottom:auto;left:22px;width:190px;max-height:calc(100vh - 60px);margin-top:0;translate:0 -50%;padding:20px 0 16px;border-radius:4px;
+    box-shadow:0 18px 30px -16px rgba(40,30,50,.5);transition:none}
+  .sidenav::before{content:"";position:absolute;top:-10px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(3deg);background:var(--tape)}
+  .nav-title{font-size:2.1rem;margin-left:18px}
+  .sidenav a{font-size:1.2rem;padding:5px 10px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -757,8 +788,26 @@ body.gated{overflow:hidden}
     <div class="mono" id="mono" aria-hidden="true">US</div>
   </div>
 </div>
+<button class="nav-toggle" id="navToggle" type="button" aria-controls="sidenav" aria-expanded="false"><span aria-hidden="true">♡</span> index</button>
+<div class="nav-scrim" id="navScrim" hidden></div>
+<nav class="sidenav" id="sidenav" aria-label="Sections">
+  <p class="nav-title">contents</p>
+  <ol>
+    <li><a href="#s-top" style="--tab:#c9c1ea">The beginning</a></li>
+    <li><a href="#s-song" style="--tab:#f6c3cf">Now playing</a></li>
+    <li><a href="#s-reel" style="--tab:#2a2523">Film roll</a></li>
+    <li><a href="#s-places" style="--tab:#a9b985">Places</a></li>
+    <li><a href="#s-map" style="--tab:#b9d1ee">Map of us</a></li>
+    <li><a href="#s-letter" style="--tab:#8e1b22">A letter for you</a></li>
+    <li><a href="#s-until" style="--tab:#f4e29a">Until I see you</a></li>
+    <li><a href="#s-coupons" style="--tab:#f3a9c0">Love coupons</a></li>
+    <li><a href="#s-bucket" style="--tab:#ee90b2">Bucket list</a></li>
+    <li><a href="#s-quiz" style="--tab:#cfd8ea">Pop quiz</a></li>
+    <li><a href="#s-mem" style="--tab:#fffdf8">Memories</a></li>
+  </ol>
+</nav>
 <div class="wrap">
-  <header class="hero">
+  <header class="hero" id="s-top">
     <div class="collage" aria-hidden="true">
       <img class="cut c1" src="photos/de7d1be53ef9f3ef3efa45a424f2524b.jpg" alt="">
       <img class="cut c2" src="photos/f898a801dd9791bca36e5ae16b178634.jpg" alt="">
@@ -784,7 +833,7 @@ body.gated{overflow:hidden}
     <div class="offline" id="offline" hidden>Open this page signed in to Claude to add and save memories.</div>
   </header>
 
-  <section class="panel pp-blush" aria-labelledby="h-song">
+  <section class="panel pp-blush" id="s-song" aria-labelledby="h-song">
     <span class="badge" aria-hidden="true">press play ♡</span>
     <img class="deco s-br" src="deco/bow-sage.svg" alt="">
     <div class="sec-head"><h2 id="h-song">Now playing</h2><span class="label">side A · track 1</span></div>
@@ -812,7 +861,7 @@ body.gated{overflow:hidden}
     <audio id="song" src="audio/photograph.mp3" preload="metadata"></audio>
   </section>
 
-  <section class="panel p-dark" aria-labelledby="h-reel">
+  <section class="panel p-dark" id="s-reel" aria-labelledby="h-reel">
     <span class="badge" aria-hidden="true">11 frames</span>
     <img class="deco s-bl" src="deco/cherries.svg" alt=""><img class="deco s-br plaid" src="deco/plaid-scrap.svg" alt="">
     <div class="sec-head"><h2 id="h-reel">Our film roll</h2><span class="label">11 exposures · developed with love</span></div>
@@ -825,14 +874,14 @@ body.gated{overflow:hidden}
     <p class="reel-note">tap the roll to pause it</p>
   </section>
 
-  <section class="panel pp-sage" aria-labelledby="h-places">
+  <section class="panel pp-sage" id="s-places" aria-labelledby="h-places">
     <span class="badge" aria-hidden="true">stamped ✈</span>
     <img class="deco s-bl bow" src="deco/bow-pink.svg" alt=""><img class="deco s-br spark" src="deco/sparkle.svg" alt="">
     <div class="sec-head"><h2 id="h-places">Places we've been</h2><span class="label" id="placesLabel">passport</span></div>
     <div class="stamps" id="stamps"></div>
   </section>
 
-  <section class="panel pp-sky" aria-labelledby="h-map">
+  <section class="panel pp-sky" id="s-map" aria-labelledby="h-map">
     <span class="badge" aria-hidden="true">7,376 km</span>
     <img class="deco s-bl star" src="deco/star-denim.svg" alt="">
     <div class="sec-head"><h2 id="h-map">Map of us</h2><span class="label">7,376 km apart</span></div>
@@ -867,7 +916,7 @@ body.gated{overflow:hidden}
     <p class="map-note">More pins to come as we travel together.</p>
   </section>
 
-  <section class="panel pp-cherry" aria-labelledby="h-letter">
+  <section class="panel pp-cherry" id="s-letter" aria-labelledby="h-letter">
     <span class="badge" aria-hidden="true">for your eyes only</span>
     <img class="deco s-bl star" src="deco/star-denim.svg" alt=""><img class="deco s-br spark" src="deco/sparkle.svg" alt="">
     <div class="sec-head"><h2 id="h-letter">A letter for you</h2><span class="label">read me first</span></div>
@@ -899,7 +948,7 @@ body.gated{overflow:hidden}
     <div class="reveal-row" id="revealRow"><button class="ghost-btn" id="revealBtn" type="button">Too impatient? Reveal the letter</button></div>
   </section>
 
-  <section class="panel pp-butter" aria-labelledby="h-until">
+  <section class="panel pp-butter" id="s-until" aria-labelledby="h-until">
     <span class="badge" aria-hidden="true">see you soon</span>
     <img class="deco s-br bow" src="deco/bow-pink.svg" alt="">
     <div class="sec-head"><h2 id="h-until">Until I see you</h2><span class="label">Sydney → Hong Kong</span></div>
@@ -933,14 +982,14 @@ body.gated{overflow:hidden}
     </div>
   </section>
 
-  <section class="panel pp-gingham" aria-labelledby="h-coupons">
+  <section class="panel pp-gingham" id="s-coupons" aria-labelledby="h-coupons">
     <span class="badge" aria-hidden="true">no expiry</span>
     <img class="deco s-bl plaid" src="deco/plaid-scrap.svg" alt=""><img class="deco s-br spark" src="deco/sparkle.svg" alt="">
     <div class="sec-head"><h2 id="h-coupons">Love coupons</h2><span class="label">redeem anytime · no expiry</span></div>
     <div class="coupons" id="coupons"></div>
   </section>
 
-  <section class="panel pp-hot" aria-labelledby="h-bucket">
+  <section class="panel pp-hot" id="s-bucket" aria-labelledby="h-bucket">
     <span class="badge" aria-hidden="true">someday</span>
     <img class="deco s-br star" src="deco/star-denim.svg" alt="">
     <div class="sec-head"><h2 id="h-bucket">Our bucket list</h2><span class="label">someday, together</span></div>
@@ -954,7 +1003,7 @@ body.gated{overflow:hidden}
     </div>
   </section>
 
-  <section class="panel pp-graph" aria-labelledby="h-quiz">
+  <section class="panel pp-graph" id="s-quiz" aria-labelledby="h-quiz">
     <span class="badge" aria-hidden="true">pop quiz!</span>
     <img class="deco s-bl" src="deco/cherries.svg" alt="">
     <div class="sec-head"><h2 id="h-quiz">How well do you know me?</h2><span class="label">no cheating, andrew</span></div>
@@ -964,7 +1013,7 @@ body.gated{overflow:hidden}
     </div>
   </section>
 
-  <section class="panel p-open" aria-labelledby="h-mem">
+  <section class="panel p-open" id="s-mem" aria-labelledby="h-mem">
     <span class="badge" aria-hidden="true">our archive</span>
     <img class="deco s-tl bow" src="deco/bow-red.svg" alt="">
     <div class="sec-head"><h2 id="h-mem">Memories</h2><span class="label">from the very beginning</span></div>
@@ -1615,6 +1664,30 @@ const GRADES = [
     res.append(again); body.append(res);
   }
   ask();
+})();
+
+/* ---------- index sidebar ---------- */
+(() => {
+  const nav = $("sidenav"), btn = $("navToggle"), scrim = $("navScrim");
+  const setOpen = open => {
+    nav.classList.toggle("open", open); scrim.hidden = !open; btn.setAttribute("aria-expanded", String(open));
+    if (open) nav.querySelector("a.here, a")?.focus();
+  };
+  btn.onclick = () => setOpen(!nav.classList.contains("open"));
+  scrim.onclick = () => setOpen(false);
+  nav.addEventListener("click", e => { if (e.target.closest("a")) setOpen(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("open")) { setOpen(false); btn.focus(); } });
+  // highlight the last section whose top has passed the middle of the screen
+  const links = [...nav.querySelectorAll("a")].map(a => [document.getElementById(a.hash.slice(1)), a]).filter(([t]) => t);
+  let ticking = false;
+  const mark = () => {
+    ticking = false;
+    const mid = innerHeight * .45; let cur = links[0];
+    for (const pair of links) if (pair[0].getBoundingClientRect().top <= mid) cur = pair;
+    links.forEach(([, a]) => a.classList.toggle("here", a === cur[1]));
+  };
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(mark); } }, { passive: true });
+  addEventListener("resize", mark); mark();
 })();
 
 /* ---------- scratch-off letter ---------- */
