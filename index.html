@@ -1689,9 +1689,7 @@ const GRADES = [
 
 /* ---------- scratch-off letter ---------- */
 (() => {
-  const paper = $("ltPaper"), cv = $("scratch"), KEY = "yearofus-scratched";
-  let already = false; try { already = localStorage.getItem(KEY) === "1"; } catch {}
-  if (already) { cv.remove(); $("revealRow").hidden = true; return; }
+  const paper = $("ltPaper"), cv = $("scratch");
   const ctx = cv.getContext("2d");
   let started = false, down = false, last = null, moves = 0, gone = false;
   function paint() {
@@ -1728,7 +1726,6 @@ const GRADES = [
   function reveal() {
     if (gone) return; gone = true;
     cv.classList.add("gone"); setTimeout(() => cv.remove(), 900); $("revealRow").hidden = true;
-    try { localStorage.setItem(KEY, "1"); } catch {}
   }
   cv.addEventListener("pointerdown", e => { down = true; last = null; try { cv.setPointerCapture(e.pointerId); } catch {} scratch(pos(e)); });
   cv.addEventListener("pointermove", e => { if (down) scratch(pos(e)); });
